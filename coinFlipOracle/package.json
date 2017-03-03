@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "web3": "0.17.0-alpha",
+    "solc": "0.4.4",
+    "ethereumjs-tx": "1.2.5",
+    "lodash": "4.17.4"
+  }
+}
