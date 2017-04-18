@@ -274,18 +274,23 @@ contract usingOraclize {
         }
         return string(bstr);
     }
-
-
-
 }
 
 contract CoinFlipOracle is usingOraclize {
 
+  enum GameState {noWager, makeWager, wagerAccepted}
+  GameState public currentState;
+
   string public result;
   bytes32 public oraclizeID;
 
+  function CoinFlipOracle() {
+    currentState = GameState.noWager;
+  }
+
+
   function flipCoin() payable {
-    oraclizeID = oraclize_query("WolframAlpha", "flip a coin");
+    oraclizeID = oraclize_query("WolframAlpha", "randome number between 0 and 1000");
   }
 
   function __callback(bytes32 _oraclizeID, string _result) {
@@ -294,3 +299,15 @@ contract CoinFlipOracle is usingOraclize {
   }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+

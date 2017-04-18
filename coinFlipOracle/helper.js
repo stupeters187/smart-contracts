@@ -16,9 +16,9 @@ global.lodash = require("lodash")
 global.SolidityFunction = require("web3/lib/web3/function")
 
 // Connect Web3 Instance
-// global.web3 = new Web3(new Web3.providers.HttpProvider(`http://${global.config.rpc.host}:${global.config.rpc.port}`))
+global.web3 = new Web3(new Web3.providers.HttpProvider(`http://${global.config.rpc.host}:${global.config.rpc.port}`))
 // global.web3 = new Web3(new Web3.providers.HttpProvider(`https://mainnet.infura.io/EjLdRlni9SfrUBEnnvVt`))
-global.web3 = new Web3(new Web3.providers.HttpProvider(`https://ropsten.infura.io/EjLdRlni9SfrUBEnnvVt`))
+// global.web3 = new Web3(new Web3.providers.HttpProvider(`https://ropsten.infura.io/EjLdRlni9SfrUBEnnvVt`))
 // global.ENS = require("./ensutils.js")
 // global.ens = new ENS(global.web3)
 

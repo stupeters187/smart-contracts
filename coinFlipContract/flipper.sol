@@ -29,9 +29,7 @@ contract Flipper {
       return true;
     } else {
       throw;
-    }
-    
-    
+    } 
   }
 
   function resolveBet() onlyState(GameState.wagerAccepted) returns (bool) {
@@ -49,8 +47,8 @@ contract Flipper {
       currentState = GameState.noWager;
       return true;
     }
-
-
   }
  
 }
+
+
