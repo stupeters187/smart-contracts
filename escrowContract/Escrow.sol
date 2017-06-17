@@ -13,14 +13,18 @@ contract Escrow {
 
   function payoutToSeller() {
     if(msg.sender == buyer || msg.sender == arbiter) {
-      seller.send(this.balance);  
+      seller.transfer(this.balance);  
     } 
   }
 
   function refundToBuyer() {
     if(msg.sender == seller || msg.sender == arbiter) {
-      buyer.send(this.balance);
+      buyer.transfer(this.balance);
     } 
+  }
+
+  function fund() payable returns (bool) {
+    return true;
   }
 
   function getBalance() constant returns (uint) {
