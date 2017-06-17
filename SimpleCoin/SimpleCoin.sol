@@ -8,6 +8,7 @@ contract Coin {
     mapping (address => uint) public balances;
     
     event Transfer(address indexed _to, address indexed _from, uint _value);
+    event NewCoinLog(address _to, uint _amount, uint _newSupply);
     
     modifier onlyOwner(){
         if(msg.sender != owner) {
@@ -20,6 +21,7 @@ contract Coin {
     function Coin(uint _supply) {
       owner = msg.sender;
       totalSupply = _supply;
+      balances[owner] += _supply;
     }
     
     function getBalance(address _addr) constant returns (uint){
@@ -36,6 +38,8 @@ contract Coin {
     
     function mint(uint _amount) onlyOwner returns (bool){
         totalSupply += _amount;
+        balances[owner] += _amount;
+        NewCoinLog(owner, _amount, totalSupply);
         return true;
     }
 }
