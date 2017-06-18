@@ -10,7 +10,7 @@ contract CrowdFund {
     
     address[] totalFundersArr;
 
-    event Contribution(uint _amount);
+    event Contribution(uint _amount, uint _amountRemaining);
     
     function CrowdFund(address _beneficiary, uint _goal, uint _duration){
         beneficiary = _beneficiary;
@@ -29,7 +29,7 @@ contract CrowdFund {
     function contribute() payable {
         if(funders[msg.sender] == 0) totalFundersArr.push(msg.sender);
         funders[msg.sender] += msg.value;
-        Contribution(msg.value);
+        Contribution(msg.value, goal - this.balance);
     }
     
     function payout(){
