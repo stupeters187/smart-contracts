@@ -39,4 +39,9 @@ contract CrowdFund {
             funders[msg.sender] = 0;
         }
     }
+
+    function disable(){
+        if(this.balance != 0) throw;
+        selfdestruct(beneficiary);
+    }
 }
