@@ -18,6 +18,10 @@ contract CrowdFund {
         deadline  = now + _duration;
     }
     
+    function currentFunding() constant returns (uint){
+        return this.balance;
+    }
+    
     function totalFunders() constant returns (uint){
         return totalFundersArr.length;
     }
@@ -39,7 +43,7 @@ contract CrowdFund {
             funders[msg.sender] = 0;
         }
     }
-
+    
     function disable(){
         if(this.balance != 0) throw;
         selfdestruct(beneficiary);
