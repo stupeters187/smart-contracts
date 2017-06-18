@@ -10,7 +10,7 @@ contract StuCoin {
   event Approval(address indexed _owner, address indexed _spender, uint256 _value);
 
   //Constructor
-  function Stucoin(uint256 _initialAmount) {
+  function StuCoin(uint256 _initialAmount) {
     balances[msg.sender] = _initialAmount;
     totalSupply = _initialAmount;
   }
